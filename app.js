@@ -4,7 +4,6 @@ var express          = require("express"),
     bodyParser       = require("body-parser"),
     mongoose         = require("mongoose"),
     User             = require("./models/users"),
-    seedDB           = require("./seeds"),
     passport         = require("passport"),
     LocalStrategy    = require("passport-local"),
     methodOverride   = require("method-override");
@@ -13,7 +12,7 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-var dbUrl = process.env.DATABASEURL || "mongodb://localhost/yelpcamp_v13";
+var dbUrl = process.env.DATABASEURL || "mongodb://localhost/yelpcamp_final";
 mongoose.connect(dbUrl);
 mongoose.Promise = Promise;
 app.use(bodyParser.urlencoded({extended:true}));
@@ -21,7 +20,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-//seedDB();
 
 //PASSPORT CONFIG
 app.use(require("express-session")({

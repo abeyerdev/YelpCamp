@@ -13,3 +13,8 @@
 #delete-form {
     display:inline;
 }
+
+.container form input{
+    display:inherit;
+    margin: 5px 0;
+}
